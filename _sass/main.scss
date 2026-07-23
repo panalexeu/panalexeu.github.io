@@ -20,9 +20,9 @@
 } 
 
 .home-title {
-    position: relative;
-    display: block;
-    text-align: center;
+    position: relative; // it makes the element the anchor point for any child element using position: absolute
+    display: block; // makes the element take up the full width of its container
+    text-align: center; // centers the text content horizontally
 }
 
 .cool-title {
