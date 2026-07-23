@@ -1,0 +1,12 @@
+<span id="random-phrase" class="cool-title"></span>
+
+<script>
+    const phrases = [
+        {% for phrase in site.data.wlcm_phrases%}
+            "{{ phrase | escape }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ];
+
+    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    document.getElementById("random-phrase").textContent = randomPhrase;
+</script>
