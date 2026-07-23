@@ -1,0 +1,23 @@
+---
+title: literature 
+---
+
+<h2>literature</h2>
+
+<main class="post">
+    Here I just save a bunch of books/research papers I'm currently reading, have read, or find useful, along with the date they were added, so I don't lose them.
+
+    <ul>
+        {% for lit in site.data.literature %}
+            <li>
+                <p>
+                    {{lit.name}}    
+                    <br>
+                    <a href="{{lit.url}}">url</a>
+                    <br>
+                    {{lit.date | date_to_string}}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
