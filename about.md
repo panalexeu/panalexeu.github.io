@@ -16,6 +16,8 @@ My career started in 2023–24 with an ML internship. After that, I worked part-
 
 In 2025–26, I worked as an RL engineer for an SF-based startup, designing RL environments for LLM training. The startup's customer was a leading AI research lab.
 
+I have a lot of interesting projects hosted on my GitHub, so please take a look at them. I recommend paying more attention to my [pinned repos](https://github.com/panalexeu) in particular.
+
 ![me](/assets/images/me_small.jpeg)
 
 Outside of work, I recently discovered a love for movies ([letterboxd](https://letterboxd.com/panalexeu/films/)).
