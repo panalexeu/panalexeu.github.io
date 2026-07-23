@@ -19,9 +19,27 @@
     gap: 2rem;
 } 
 
-.home-logo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 0.5rem;
+.home-title {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.cool-title {
+    position: absolute;
+    bottom: -0.5em;
+    font-size: 0.6em;
+    transform: rotate(-30deg);
+    animation: pulse 1.5s ease-in-out infinite;
+    color: yellow;
+    text-shadow: 1px 1px 0px black; // hor. offset, ver. offset, blur, color 
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: rotate(-30deg) scale(1);
+  }
+  50% {
+    transform: rotate(-30deg) scale(1.3);
+  }
 }
