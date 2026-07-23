@@ -1,5 +1,0 @@
----
-title: publications 
----
-
-## publications

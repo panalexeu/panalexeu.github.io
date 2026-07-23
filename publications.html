@@ -1,0 +1,23 @@
+---
+title: publications 
+---
+
+<h2>publications</h2>
+
+<main class="post">
+    <ul>
+        {% for pub in site.data.publications %}
+            <li>
+                <p>
+                    {{pub.name}}
+                    <br>
+                    <a href="{{pub.path}}">file</a>
+                    <br>
+                    <a href="{{pub.url}}">url</a>
+                    <br>
+                    <i>{{pub.type}}</i>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+</main>

@@ -1,12 +1,12 @@
 - name: "Semantic Text Splitting Method Development for RAG Systems with Controlled Threshold and Sliding Window Size — Oleg Galchonkov, Oleksii Horchynskyi, Svetlana Antoshchuk, Volodymyr Nareznoy, 2025, Eastern-European Journal of Enterprise Technologies (Journal Article)"
   path: /assets/files/research_paper0.pdf 
   type: research_paper
-  link: https://journals.uran.ua/eejet/article/view/326177 
+  url: https://journals.uran.ua/eejet/article/view/326177 
 - name: "Finding the Shortest Path Between Points on a Platformer Game Map Using the A Algorithm* — Oleksii Horchynskyi, Olena Arsirii, 2023, Modern Information Technology"
   path: /assets/files/conference_paper0.pdf
   type: conference_paper
-  link: http://dspace.op.edu.ua/jspui/handle/123456789/14199
+  url: http://dspace.op.edu.ua/jspui/handle/123456789/14199
 - name: "Development of a Web Resource Using Retrieval-Augmented Generation with Ukrainian Language Support — Oleksii Horchynskyi, 2025, supervised by Oleh Galchonkov, Odesa Polytechnic National University"
   path: /assets/files/bachelor_thesis0.pdf
   type: bachelor_thesis
-  link: https://rkr.op.edu.ua/15729
+  url: https://rkr.op.edu.ua/15729
