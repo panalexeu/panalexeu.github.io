@@ -26,6 +26,7 @@ Outside of work, I recently discovered a love for movies ([letterboxd](https://l
 
 **Contact me:**
 - Email: oleksahorch@gmail.com
+- LinkedIn: [oleksiihorchynskyi](https://www.linkedin.com/in/oleksiihorchynskyi/)
 - GitHub: [https://github.com/panalexeu](https://github.com/panalexeu)
 
 </article>
