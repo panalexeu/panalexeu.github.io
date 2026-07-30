@@ -9,7 +9,7 @@ I'd like to start this series with the architecture presented in a more than two
 
 ![nplm_pic](/assets/images/fig1_0.png)
 
-Figure 1 - NPLM architecture taken from [2]
+Figure 1 - NPLM architecture figure taken from [2]
 
 References:
 1. Speech and Language Processing (3rd ed. draft), Dan Jurafsky and James H. Martin
