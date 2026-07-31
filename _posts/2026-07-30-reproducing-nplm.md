@@ -7,7 +7,7 @@ Throughout my NLP career (already in the transformer era), the question that puz
 
 I'd like to start this series with the architecture presented in a more than two decades old paper, "A Neural Probabilistic Language Model" (2003) [2]. I intentionally skip n-gram models as purely statistical LMs, though you can find my implementation of n-grams [here](https://github.com/panalexeu/nanongram). I believe the shortest and best way to describe the architecture presented in [2] is: a neural improvement on n-gram models. A neural probabilistic language model (NPLM) marks a discrete, observable shift from statistical LMs to neural LMs (fig. 1).
 
-![nplm_pic](/assets/images/fig1_0.png)
+![nplm_pic](/assets/images/fig1_1.png)
 
 Figure 1 - NPLM architecture figure taken from [2]
 
@@ -166,11 +166,7 @@ function.
 And to build even more intuition, let me quote the paper's comparison of NPLM to n-grams from its introduction:
 
 ```text
-First, it is not taking into account contexts farther than 1 or 2 words,
-second it is not taking into account the “similarity” between words. For example, having seen the
-sentence “The cat is walking in the bedroom” in the training corpus should help us generalize to make the sentence 
-“A dog was running in a room” almost as likely, simply because “dog” and “cat” (resp. “the” and “a”, “room” and “bedroom”, etc...) 
-have similar semantic and grammatical roles.
+First, it is not taking into account contexts farther than 1 or 2 words, second it is not taking into account the “similarity” between words. For example, having seen the sentence “The cat is walking in the bedroom” in the training corpus should help us generalize to make the sentence  “A dog was running in a room” almost as likely, simply because “dog” and “cat” (resp. “the” and “a”, “room” and “bedroom”, etc...) have similar semantic and grammatical roles.
 ```
 
 The breakthrough of the paper at the time was an attempt to generalize better to unseen test sequences (e.g., n-gram models without interpolation simply output 0 probability for unseen sequences), by learning semantic word feature vector representations (matrix `C`), so that "The cat is walking in the bedroom" could naturally generalize to "A dog was running in a room."
@@ -227,6 +223,7 @@ I'd highlight how well the model learned the tiny-shakespeare structure (role:\n
 Because in NPLM the context size is constant and doesn't extend as generation continues auto-regressively, it's also fun to run infinite sampling from the trained model:
 
 ![sampling](/assets/gifs/fig1_2.gif)
+
 Figure 2 - Infinite sampling
 
 --- 
