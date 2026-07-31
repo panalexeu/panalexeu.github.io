@@ -15,6 +15,8 @@ NPLM consists of three parts: an embedding matrix `C`, a hidden layer `H` (with 
 
 NPLM scales linearly with the context size `n`, and the context is provided to the hidden layer as a single word feature vector (a concatenation of word feature activations from matrix `C`). Thus, positional information about words in a context is encoded purely through concatenation: a word's position corresponds directly to its position in the word feature vector (note: transformers, by contrast, encode positional information into the individual tokens *themselves*, which makes it even clearer why the transformer architecture is so parallelizable).
 
+`H` size in the paper is smaller than the concatenated single feature vector, thus compressing the feature vector rather than expanding it. It takes the concatenated `n × embed` context vector and compresses it into a smaller, nonlinear representation that captures interactions between context words, rather than just carrying the raw concatenation forward.
+
 The paper also presents a version of the architecture with a skip connection: an additional matrix `W` is defined, mapping the concatenation of matrix `C` activations (the word feature vector) directly to the vocab, which is then summed with the activations of layer `O`, and a softmax is applied to the final sum. However, results presented in the paper suggest that skip connections *hurt* generalization:
 
 ```text
@@ -225,6 +227,8 @@ Because in NPLM the context size is constant and doesn't extend as generation co
 ![sampling](/assets/gifs/fig1_2.gif)
 
 Figure 2 - Infinite sampling
+
+It's a small architecture by today's standards, but the core idea — learning continuous representations instead of counting discrete sequences — remains foundational to the transformers used today.
 
 --- 
 
