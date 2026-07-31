@@ -11,19 +11,19 @@ I'd like to start this series with the architecture presented in a more than two
 
 Figure 1 - NPLM architecture figure taken from [2]
 
-NPLM consists of three parts: embedding matrix `C`, hidden layer `H` (tanh as a nonlinearity), and output projection layer `O` (maps hidden layer activations back to vocab). 
+NPLM consists of three parts: an embedding matrix `C`, a hidden layer `H` (with tanh as nonlinearity), and an output projection layer `O` (which maps hidden layer activations back to the vocab).
 
-NPLM scales linearly with a context size `n`, and context is provided to hidden layer as a one words feature vector (concatenation of word features activations from matrix `C`). Thus positonal information about words in a context is encoded purely through concatenation: word position corresponds directly to position in the words feature vector (note: that transformers encode positional information into individual tokens *itself*, makes even more clear why transformer architecture is so paralelalizable).  
+NPLM scales linearly with the context size `n`, and the context is provided to the hidden layer as a single word feature vector (a concatenation of word feature activations from matrix `C`). Thus, positional information about words in a context is encoded purely through concatenation: a word's position corresponds directly to its position in the word feature vector (note: transformers, by contrast, encode positional information into the individual tokens *themselves*, which makes it even clearer why the transformer architecture is so parallelizable).
 
-In the paper was also presented a version of an architcture with a skip connection introduced: additonal matrix `W` is defined which is a mapping from matrix `C` activations concatenation (words feature vector) to vocab that is summed over with activations of layer `O`, and to the final sum a softmax is applied. However results presented in the paper suggest that skip connections *hurt* generalization: 
+The paper also presents a version of the architecture with a skip connection: an additional matrix `W` is defined, mapping the concatenation of matrix `C` activations (the word feature vector) directly to the vocab, which is then summed with the activations of layer `O`, and a softmax is applied to the final sum. However, results presented in the paper suggest that skip connections *hurt* generalization:
 
 ```text
-A reasonable interpretation is that direct input-to-output connections provide a bit more capacity and faster learning of the “linear” part of the mapping from word features to log robabilities. On the other hand, without those connections the hidden units form a tight bottleneck which might force better generalization.
+A reasonable interpretation is that direct input-to-output connections provide a bit more capacity and faster learning of the “linear” part of the mapping from word features to log probabilities. On the other hand, without those connections the hidden units form a tight bottleneck which might force better generalization.
 ```
 
-Output probabilities of NPLM might also be mixed with output probabilities of trained ngram model. In the paper it is stated that such mixing always help in perplexity reduction. 
+Output probabilities of NPLM might also be mixed with output probabilities of a trained n-gram model. The paper states that such mixing always helps reduce perplexity.
 
-Below is a pytorch NPLM implementation with skip connection matrix ommited (it hurts generalization and compute power after 2 decades later much increased, so training for more epochs is not a problem anymore): 
+Below is a PyTorch NPLM implementation with the skip connection matrix omitted (it hurts generalization, and compute power has increased so much over the past two decades that training for more epochs is no longer a problem):
 
 ```python
 from typing import Self
@@ -150,7 +150,7 @@ class Model(nn.Module):
         return optimizer 
 ```
 
-I'd like to finish this dense overview of an architecture by quoting a proposed approach fragment from the paper: 
+I'd like to finish this dense overview of the architecture by quoting a fragment of the proposed approach from the paper:
 
 ```text
 In a nutshell, the idea of the proposed approach can be summarized as follows:
@@ -163,7 +163,7 @@ of these words in the sequence, and
 function.
 ```
 
-And to build even more intuition let me quote the comparison of NPLM to ngrams in the paper's introduction: 
+And to build even more intuition, let me quote the paper's comparison of NPLM to n-grams from its introduction:
 
 ```text
 First, it is not taking into account contexts farther than 1 or 2 words,
@@ -173,12 +173,11 @@ sentence “The cat is walking in the bedroom” in the training corpus should h
 have similar semantic and grammatical roles.
 ```
 
-Breakthrough of the paper at a time was an attempt to generalize better on unseen test sequences (e.g. ngram models without interpolation just output
-0 prob for unseen sequences), by learning semantic word feature vector representations (matrix `C`), so `The cat is walking in the bedroom` could naturally generalize to `A dog was running in a room`. 
+The breakthrough of the paper at the time was an attempt to generalize better to unseen test sequences (e.g., n-gram models without interpolation simply output 0 probability for unseen sequences), by learning semantic word feature vector representations (matrix `C`), so that "The cat is walking in the bedroom" could naturally generalize to "A dog was running in a room."
 
-You can find NPLM implementation both with training and inference scripts and trained checkpoint [here](https://github.com/panalexeu/nanonplm).
+You can find the NPLM implementation, with both training and inference scripts and a trained checkpoint, [here](https://github.com/panalexeu/nanonplm).
 
-To give you a grasp on what kind of capababilties NPLM can achieve, with the following model configuration: 
+To give you a sense of what NPLM can achieve, with the following model configuration:
 
 ```python 
 cfg = ModelConfig(
@@ -189,9 +188,9 @@ cfg = ModelConfig(
 )
 ```
 
-trained using SGD for 1,000,000 steps on first 297,832 tokens of a tiny-shaekspere [3], on a test set of last 29,783 unseen tokens, achieves ppl of 136.44.
+trained using SGD for 1,000,000 steps on the first 297,832 tokens of tiny-shakespeare [3], it achieves a ppl of 136.44 on a test set of the last 29,783 unseen tokens.
 
-Below is a generated sample for an input `to be or not to` with temperature set to 0.7: 
+Below is a generated sample for the input `to be or not to`, with temperature set to 0.7:
 
 ```text 
 to be or not to us
@@ -223,10 +222,9 @@ old'd to the word, and i would not so
 ...
 ```
 
-I'd highlight how model learned the tiny-shaekspere structure (role:\ntext). 
+I'd highlight how well the model learned the tiny-shakespeare structure (role:\ntext).
 
-Because in NPLM context size is a constant and does not extend from an auto-regressive generation, it is also fun to run an infinite 
-sampling from the trained model: 
+Because in NPLM the context size is constant and doesn't extend as generation continues auto-regressively, it's also fun to run infinite sampling from the trained model:
 
 ![sampling](/assets/gifs/fig1_2.gif)
 Figure 2 - Infinite sampling
@@ -234,6 +232,6 @@ Figure 2 - Infinite sampling
 --- 
 
 References:
-1. Speech and Language Processing (3rd ed. draft), Dan Jurafsky and James H. Martin
-2. "A Neural Probabilistic Language Model" (2003)
-3. Tiny Shaekspere - https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
+1. Speech and Language Processing (3rd ed. draft), Dan Jurafsky and James H. Martin - https://web.stanford.edu/~jurafsky/slp3/
+2. "A Neural Probabilistic Language Model" (2003), Yoshua Bengio, Réjean Ducharme, Pascal Vincent, Christian Jauvin - https://dl.acm.org/doi/epdf/10.5555/944919.944966
+3. Tiny Shakespeare, Andrej Karpathy - https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
