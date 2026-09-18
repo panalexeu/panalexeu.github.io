@@ -1,5 +1,5 @@
 ---
-title: Reproducing "A Neural Probabilistic Language Model" (2003)
+title: Reproducing "A Neural Probabilistic Language Model" (2003) [RETRO]
 author: oleksii horchynskyi
 ---
 
