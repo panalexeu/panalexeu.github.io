@@ -1,6 +1,6 @@
-- name: "Speech and Language Processing (3rd ed. draft) Dan Jurafsky and James H. Martin " 
-  url: https://web.stanford.edu/~jurafsky/slp3/
-  date: "2026-7-23"
 - name: "Reinforcement Learning: An Introduction (2nd ed. draft) Richard S. Sutton and Andrew G. Barto" 
   url: https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf
   date: "2026-9-18"
+- name: "Speech and Language Processing (3rd ed. draft) Dan Jurafsky and James H. Martin " 
+  url: https://web.stanford.edu/~jurafsky/slp3/
+  date: "2026-7-23"

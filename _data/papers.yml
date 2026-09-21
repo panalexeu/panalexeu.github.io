@@ -1,0 +1,6 @@
+- name: "Backpropagation Applied to Handwritten Zip Code Recognition, Y. LeCun et al." 
+  url: http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf
+  date: "2026-9-21"
+- name: "A Neural Probabalistic Language Model, Yoshua Bengio et al."
+  url: https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf
+  date: "2026-9-20"
