@@ -1,6 +1,6 @@
+---
 title: Reproducing "Backpropagation Applied to Handwritten Zip Code Recognition" (1989) [RETRO]
 author: oleksii horchynskyi
-
 ---
 
 I continue my series of reproduction blogposts, and this time my interest fell on convolutional neural networks. In fact, this is my first time actually reproducing a convolutional neural network. I decided to start with the 1989 paper "Backpropagation Applied to Handwritten Zip Code Recognition" by Y. LeCun et al. [1] because of its significance, and as Karpathy states, "...it is, to my knowledge, the earliest real-world application of a neural net trained end-to-end with backpropagation" [2]. Andrej Karpathy also reproduced the paper in 2022, so I used his implementation and blogpost as a cross-reference, which helps clarify some of the uncertainties in the paper (some points are not elaborated on, and the paper seems to be missing some characters).
@@ -156,6 +156,8 @@ Figure 2 - Drawn numbers in a 400x60 Aseprite spritesheet
 Figure 3 - Downscaled spritesheet, 160x16
 
 Surprisingly, the network correctly classifies only 4 digits out of 10, specifically 2, 4, 5, and 6. I am not sure how to interpret these results.
+
+The full code is available [here](https://github.com/panalexeu/nanocnn). 
 
 ---
 
