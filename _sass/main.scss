@@ -68,3 +68,34 @@ pre {
   word-break: break-word;
   overflow-x: visible;
 }
+
+// inline `code` only: code blocks render as <pre><code> and keep their own styling
+:not(pre) > code {
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+  background-color: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+}
+
+table {
+  display: block;     // lets wide tables scroll inside .post instead of overflowing it
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.85em;
+}
+
+th, td {
+  padding: 0.4em 0.7em;
+  border: 1px solid grey;
+  text-align: left;
+  white-space: nowrap;
+  background-color: #fff3b0;   // same yellow as code blocks (.highlight in syntax.scss)
+}
+
+th {
+  border-bottom-width: 2px;
+}
