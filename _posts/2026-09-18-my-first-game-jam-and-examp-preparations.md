@@ -1,5 +1,5 @@
 ---
-title: My First Game Jam and Exam Preparations
+title: My First Game Jam and Exam Preparations [LIFE]
 author: oleksii horchysnkyi
 ---
 
