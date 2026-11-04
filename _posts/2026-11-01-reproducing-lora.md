@@ -10,7 +10,7 @@ LoRA cuts VRAM usage dramatically by shrinking the number of trainable parameter
 
 ![lora](/assets/images/fig5_1.png)
 
-Figure 1 - LoRA training
+Figure 1 - LoRA 
 
 So why were the authors confident that a low-rank approximation could learn anything useful at all? The idea comes from earlier studies showing that over-parametrized models actually live in a low intrinsic dimension. This makes a lot of sense if you think about it like this: say we have a model pretrained on English web text, and we want to SFT it to answer questions about neural network books better. Most of the weights that learned how to predict English text won't need to change, and probably only a really small fraction of neurons actually has to be tweaked for the new task. LoRA takes advantage of this: it freezes the weights that wouldn't change much anyway and trains small rank-r matrices (r << d) to adapt the model to the new task.
 
