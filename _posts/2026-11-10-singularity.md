@@ -3,6 +3,7 @@ title: vibecoded switch port of singularity (2010), the xbox 360 version
 author: oleksii horchynskyi
 ---
 
+[repo](https://github.com/panalexeu/singularity-nx)
 
 <iframe style="width:100%; aspect-ratio:16/9; height:auto;"
   src="https://www.youtube.com/embed/nBCLeDPkIlk"
